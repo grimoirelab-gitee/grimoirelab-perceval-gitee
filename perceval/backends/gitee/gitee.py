@@ -296,7 +296,8 @@ class Gitee(Backend):
         for raw_pulls in raw_pulls_groups:
             pulls = json.loads(raw_pulls)
             for pull in pulls:
-                if str_to_datetime(pull['updated_at']) > to_date:
+                if str_to_datetime(pull['updated_at']) < from_date \
+                        or str_to_datetime(pull['updated_at']) > to_date:
                     return
 
                 self.__init_extra_pull_fields(pull)
