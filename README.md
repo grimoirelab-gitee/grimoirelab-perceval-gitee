@@ -1,4 +1,4 @@
-# grimoirelab-perceval-gitee
+# perceval-gitee
 
 Bundle of Perceval backends for Gitee.
 
