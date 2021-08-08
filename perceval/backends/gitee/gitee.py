@@ -586,6 +586,9 @@ class GiteeClient(HttpClient, RateLimitHandler):
             'direction': 'asc',
             'sort': 'updated'
         }
+        
+        if from_date:
+            payload['since'] = from_date.isoformat()
 
         path = urijoin("pulls")
         return self.fetch_items(path, payload)
