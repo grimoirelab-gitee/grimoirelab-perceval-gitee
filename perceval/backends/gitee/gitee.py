@@ -582,7 +582,7 @@ class GiteeClient(HttpClient, RateLimitHandler):
         """
         payload = {
             'state': 'all',
-            'per_page': self.max_items,
+            'per_page': 80,
             'direction': 'asc',
             'sort': 'updated'
         }
