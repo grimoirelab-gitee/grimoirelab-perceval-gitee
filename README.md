@@ -1,6 +1,7 @@
 # perceval-gitee
 
-Bundle of Perceval backends for Gitee.
+Perceval backend for Gitee.(For the complete solution of grimoirelab-gitee, you can refer to the [wiki page](https://github.com/grimoirelab-gitee/grimoirelab/wiki/How-to-run-grimoirelab-gitee%3F).)
+
 
 ## Backends
 
