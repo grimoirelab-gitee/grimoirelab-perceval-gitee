@@ -738,7 +738,7 @@ class GiteeClient(HttpClient, RateLimitHandler):
         if self.access_token:
             url = GITEE_REFRESH_TOKEN_URL + "?grant_type=refresh_token&refresh_token=" + self.access_token
             logger.info("Refresh the access_token for Gitee API")
-            self.session.post(url, data=None, headers=None, stream=False, auth=None)
+            self.session.post(url, data=None, headers=None, stream=False, verify=self.ssl_verify, auth=None)
 
 
 class GiteeCommand(BackendCommand):
