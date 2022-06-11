@@ -70,7 +70,7 @@ class Gitee(Backend):
     ```
     Gitee(
         owner='chaoss', repository='grimoirelab',
-        api_token=[TOKEN-1, TOKEN-2, ...], sleep_for_rate=True,
+        api_token=[TOKEN-1], sleep_for_rate=True,
         sleep_time=300
     )
     ```
@@ -309,7 +309,6 @@ class Gitee(Backend):
                     if field == 'user':
                         pull[field + '_data'] = self.__get_user(pull[field]['login'])
 
-                    # TODO we need to find a way to find out merged_by information
                     elif field == 'merged_by':
                         pull[field + '_data'] = self.__get_user(pull[field]['login'])
 
@@ -364,7 +363,7 @@ class Gitee(Backend):
         for raw_action_logs in group_raw_action_logs:
             action_logs = json.loads(raw_action_logs)
             for action_log in action_logs:
-                if action_log["content"] == "合并了 Pull Request":
+                if action_log["action_type"] == "merged_pr":
                     result = action_log["user"]["login"]
                     break
         return result
