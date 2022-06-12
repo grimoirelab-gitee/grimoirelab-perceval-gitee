@@ -69,13 +69,31 @@ class Gitee(Backend):
     This class allows the fetch the issues stored in Gitee repostory.
     ```
     Gitee(
-        owner='chaoss', repository='grimoirelab',
+        owner='chaoss', repository='grimoirelab-perceval-gitee',
         api_token=[TOKEN-1], sleep_for_rate=True,
         sleep_time=300
     )
     ```
-    """
 
+    :param owner: Gitee owner
+    :param repository: Gitee repository from the owner
+    :param api_token: list of Gitee auth tokens to access the API
+    :param base_url: Gitee URL in enterprise edition case;
+        when no value is set the backend will be fetch the data
+        from the Gitee public site.
+    :param tag: label used to mark the data
+    :param archive: archive to store/retrieve items
+    :param sleep_for_rate: sleep until rate limit is reset
+    :param min_rate_to_sleep: minimum rate needed to sleep until
+         it will be reset
+    :param max_retries: number of max retries to a data source
+        before raising a RetryError exception
+    :param max_items: max number of category items (e.g., issues,
+        pull requests) per query
+    :param sleep_time: time to sleep in case
+        of connection problems
+    :param ssl_verify: enable/disable SSL verification
+    """
     version = '0.1.0'
 
     CATEGORIES = [CATEGORY_ISSUE, CATEGORY_PULL_REQUEST, CATEGORY_REPO]
@@ -140,7 +158,7 @@ class Gitee(Backend):
               filter_classified=False):
         """Fetch the issues/pull requests from the repository.
 
-        The method retrieves, from a GitHub repository, the issues/pull requests
+        The method retrieves, from a Gitee repository, the issues/pull requests
         updated since the given date.
 
         :param category: the category of items to fetch
