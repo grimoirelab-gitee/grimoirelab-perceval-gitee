@@ -22,7 +22,8 @@
       "site_admin": false
     },
     "content": "合并了 Pull Request",
-    "created_at": "2020-04-07T22:28:04+08:00"
+    "created_at": "2020-04-07T22:28:04+08:00",
+    "action_type": "merged_pr"
   },
   {
     "id": 14769869,
@@ -47,6 +48,7 @@
       "site_admin": false
     },
     "content": "添加了标签 enhancement",
-    "created_at": "2020-04-07T22:21:09+08:00"
+    "created_at": "2020-04-07T22:21:09+08:00",
+    "action_type": "set_assignee"
   }
 ]
