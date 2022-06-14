@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2015-2020 Bitergia
+# Copyright (C) 2021-2022 Willem Jiang, Yehu Wang, Chenqi Shan, Fugang Xiao
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,6 +18,9 @@
 #
 # Authors:
 #     Willem Jiang <willem.jiang@gmail.com>
+#     Yehu Wang <yehui.wang.mdh@gmail.com>
+#     Chenqi Shan <chenqishan337@gmail.com>
+#     Fugang Xiao <xiao623@outlook.com>
 
 import json
 import logging
@@ -599,7 +602,7 @@ class GiteeClient(HttpClient, RateLimitHandler):
         """
         payload = {
             'state': 'all',
-            'per_page': 80,
+            'per_page': 100,
             'direction': 'asc',
             'sort': 'updated'
         }
