@@ -42,7 +42,7 @@ $ pip3 install -e .
 ### Gitee
 
 ```
-$ perceval gitee https://gitee.com/willemjiang/gitee-example --from-date 2020-03-01 --to-date 2020-05-02
+$ perceval gitee https://gitee.com/openeuler/docs --from-date 2020-01-01 --to-date 2020-05-01
 ```
 
 ## License
