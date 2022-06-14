@@ -17,9 +17,10 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 # Authors:
-#     Santiago Dueñas <sduenas@bitergia.com>
-#     Jesus M. Gonzalez-Barahona <jgb@gsyc.es>
-#
+#     Willem Jiang <willem.jiang@gmail.com>
+#     Yehu Wang <yehui.wang.mdh@gmail.com>
+#     Chenqi Shan <chenqishan337@gmail.com>
+#     Fugang Xiao <xiao623@outlook.com>
 
 import codecs
 import os.path
@@ -65,8 +66,8 @@ setup(
     version="0.1.0",
     description="Bundle of Perceval backends for Gitee",
     license="GPLV3",
-    author="Willem Jiang",
-    author_email="willem.jiang@gmail.com",
+    author="Willem Jiang, Yehu Wang, Chenqi Shan",
+    author_email="willem.jiang@gmail.com, yehui.wang.mdh@gmail.com, chenqishan337@gmail.com",
 
     long_description=long_description,
     classifiers=[
