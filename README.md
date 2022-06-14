@@ -21,7 +21,7 @@ The backends currently managed by this package support the next repositories:
 To install this package you will need to clone the repository first:
 
 ```
-$ git clone https://github.com/grimoirelab-gitee/grimoirelab-perceval-gitee.git
+$ git clone https://github.com/chaoss/grimoirelab-perceval-gitee.git
 ```
 
 Then you can execute the following commands:
