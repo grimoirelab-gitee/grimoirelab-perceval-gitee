@@ -30,12 +30,12 @@ from grimoirelab_toolkit.datetime import (datetime_to_utc,
                                           str_to_datetime, datetime_utcnow)
 from grimoirelab_toolkit.uris import urijoin
 
-from perceval.backend import (Backend,
+from ...backend import (Backend,
                               BackendCommand,
                               BackendCommandArgumentParser,
                               DEFAULT_SEARCH_FIELD)
-from perceval.client import HttpClient, RateLimitHandler
-from perceval.utils import DEFAULT_DATETIME, DEFAULT_LAST_DATETIME
+from ...client import HttpClient, RateLimitHandler
+from ...utils import DEFAULT_DATETIME, DEFAULT_LAST_DATETIME
 
 CATEGORY_ISSUE = "issue"
 CATEGORY_PULL_REQUEST = "pull_request"
