@@ -1,0 +1,11 @@
+title: remove __init__.py files and update README.md
+category: fixed
+author: ChenqiShan <chenqishan337@gmail.com>
+issue: #1
+notes: >
+    Move __init__.py files from perceval and perceval.backends
+    to adapt PEP 420 about namespace and update code in gitee.py 
+    to import packages with relative path.
+    Update README.md file for perceval command with "perceval gitee
+    owner repository" format.
+
