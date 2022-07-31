@@ -349,6 +349,10 @@ class Gitee(Backend):
         raw_repo = self.client.repo()
         repo = json.loads(raw_repo)
 
+        raw_repo_releases = self.client.repo_releases()
+        repo_releases = json.loads(raw_repo_releases)
+        repo['releases'] = repo_releases
+
         fetched_on = datetime_utcnow()
         repo['fetched_on'] = fetched_on.timestamp()
 
@@ -617,11 +621,21 @@ class GiteeClient(HttpClient, RateLimitHandler):
         """Get repository data"""
 
         path = urijoin(self.base_url, 'repos', self.owner, self.repository)
-
+    
         r = self.fetch(path)
         repo = r.text
 
         return repo
+
+    def repo_releases(self):
+        """Get repository releases data"""
+
+        path = urijoin(self.base_url, 'repos', self.owner, self.repository,'releases?page=1&per_page=100')
+    
+        r = self.fetch(path)
+        repo_releases = r.text
+
+        return repo_releases  
 
     def pull_action_logs(self, pr_number):
         """Get pull request action logs"""
