@@ -30,12 +30,12 @@ from grimoirelab_toolkit.datetime import (datetime_to_utc,
                                           str_to_datetime, datetime_utcnow)
 from grimoirelab_toolkit.uris import urijoin
 
-from perceval.backend import (Backend,
+from ...backend import (Backend,
                               BackendCommand,
                               BackendCommandArgumentParser,
                               DEFAULT_SEARCH_FIELD)
-from perceval.client import HttpClient, RateLimitHandler
-from perceval.utils import DEFAULT_DATETIME, DEFAULT_LAST_DATETIME
+from ...client import HttpClient, RateLimitHandler
+from ...utils import DEFAULT_DATETIME, DEFAULT_LAST_DATETIME
 
 CATEGORY_ISSUE = "issue"
 CATEGORY_PULL_REQUEST = "pull_request"
@@ -349,6 +349,10 @@ class Gitee(Backend):
         raw_repo = self.client.repo()
         repo = json.loads(raw_repo)
 
+        raw_repo_releases = self.client.repo_releases()
+        repo_releases = json.loads(raw_repo_releases)
+        repo['releases'] = repo_releases
+
         fetched_on = datetime_utcnow()
         repo['fetched_on'] = fetched_on.timestamp()
 
@@ -617,11 +621,21 @@ class GiteeClient(HttpClient, RateLimitHandler):
         """Get repository data"""
 
         path = urijoin(self.base_url, 'repos', self.owner, self.repository)
-
+    
         r = self.fetch(path)
         repo = r.text
 
         return repo
+
+    def repo_releases(self):
+        """Get repository releases data"""
+
+        path = urijoin(self.base_url, 'repos', self.owner, self.repository,'releases?page=1&per_page=100')
+    
+        r = self.fetch(path)
+        repo_releases = r.text
+
+        return repo_releases  
 
     def pull_action_logs(self, pr_number):
         """Get pull request action logs"""
